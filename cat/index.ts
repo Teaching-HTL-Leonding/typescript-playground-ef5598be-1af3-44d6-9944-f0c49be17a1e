@@ -1,3 +1,4 @@
+
 function setup() {
     createCanvas(800, 800)
     background("skyblue")
@@ -14,9 +15,9 @@ function setup() {
     circle(200, 230, 30)
     circle(300, 230, 30,)
 
-    line(300, 260, 250, 380)
-
-    
-
-    
+    strokeWeight(2)
+    line(250, 300, 250, 270)
+    line(250, 300, 270, 310)
+    line(250, 300, 230, 310)
+    line
 }
