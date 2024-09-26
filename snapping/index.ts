@@ -9,16 +9,16 @@ function mouseMoved() {
 
   background("lightblue");
 
-  let x: number
-
-
-  text(` ${mouseX}, ${mouseY}`, 5, height - 5)
+  let x: number= Math.round(mouseX / 40)*40
+  let y: number= Math.round(mouseY / 40)*40
+  
+  text(` ${x}, ${y}`, 5, height - 5)
   strokeWeight(3)
   stroke("with")
 
-  rect(mouseX, mouseY, - 30, 0, 30)
-  rect(mouseX, mouseY, 30, 0, 30)
-  rect(mouseX, mouseY, 0, 30)
-  rect(mouseX, mouseY, 0, -30)
+  rect(x, y, - 30, 0, 30)
+  rect(x, y, 30, 0, 30)
+  rect(x, y, 0, 30)
+  rect(x, y, 0, -30)
 
 }
