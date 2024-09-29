@@ -3,10 +3,10 @@ let clicks: string[] = []
 function setup() {
   createCanvas(530, 530)
   textSize(20)
+  background("red")
 }
 
 function draw() {
-  background("lightblue")
   let x = 10, y = 30
 
   for (let i = 0; i < clicks.length; i++) {
