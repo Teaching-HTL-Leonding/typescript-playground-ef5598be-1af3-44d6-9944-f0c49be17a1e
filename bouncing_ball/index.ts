@@ -21,7 +21,7 @@ function draw() {
 stroke("white")
 strokeWeight(3)
 fill("skyblue")
-circle(circleCenterY, width /2, circleDiameter)
+circle(width /2, circleCenterY, circleDiameter)
 
   circleCenterX += directionX
                       
