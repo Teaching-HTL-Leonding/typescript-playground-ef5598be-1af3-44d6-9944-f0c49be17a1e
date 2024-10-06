@@ -19,26 +19,22 @@ rect(width /4, height *0.4, 200, 40)
 function mouseClicked() {
     let message: string
 
-    if (mouseX < width/2 ){
-        message:"Yellow"
-    }else if (mouseX < width/2*2){
-        message:"green"
-    }else if (mouseX < width/2 && height/2){
-        message:"blue"
-    }else{
-        message:"red"
+     if (mouseX < width / 2 && mouseY < height / 2) {
+        message = "Yellow"
+    } else if (mouseX >= width / 2 && mouseY < height / 2) {
+        message = "Green"
+    } else if (mouseX < width / 2 && mouseY >= height / 2) {
+        message = "Blue"
+    } else {
+        message = "Red"
     }
-    fill("whithe")
+
+fill(0, 350)
+rect(width /4, height *0.4, 200, 40)
+
+fill("white")
     textSize(30)
-    text(`${message}`, 200, 180)
-
-
-
-
-
-
-
-
-
-
+    textAlign(CENTER)
+    text(message, width / 2, height - 90)
 }
+
