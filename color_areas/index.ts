@@ -1,8 +1,8 @@
 
 function setup() {
-    createCanvas(400, 200);
-    background("black");
-    noStroke();
+    createCanvas(400, 200)
+    background("black")
+    noStroke()
     fill("yellow")
     rect(0, 0, width / 3, height * 0.75)
     fill("green")
@@ -12,6 +12,7 @@ function setup() {
 }
 
 function mouseClicked() {
+    
     let message: string
 
     if (mouseX < width / 3) {
@@ -21,7 +22,12 @@ function mouseClicked() {
     } else {
         message = "red"
     }
-background("black")
+    
+
+    fill( 0, 350)
+    rect(0, 150, width, 50)
+    
+    fill("white")
     fill("white")
     textSize(30)
     textAlign(CENTER)
