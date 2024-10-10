@@ -11,11 +11,11 @@ let directionY = 2
 
 
 function draw() {
-  background("gold")
+  background(200, 0, 150)
 
   stroke("white")
   strokeWeight(3)
-  fill("lime")
+  noFill()
   circle(circleCenterX, circleCenterY, circleDiameter)
 
 
