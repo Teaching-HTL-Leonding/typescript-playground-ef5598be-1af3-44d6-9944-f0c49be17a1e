@@ -4,15 +4,13 @@ function setup() {
   
   background("black");
   
-  // Display the full number at the bottom of the canvas
+
   textAlign(CENTER, CENTER);
   fill("yellow");
   noStroke();
   textSize(32);
-  text(num.toString(), width / 2, height - 20);  // Convert num to string
-  
-  // Draw rectangles for each digit position
-  noFill();
+  text(num.toString(), width / 2, height - 20)
+   noFill();
   stroke("yellow");
   strokeWeight(2);
 
@@ -23,11 +21,11 @@ function setup() {
   rect(width / 1.65, height / 3, width / 9, height / 3);
   rect(width / 1.35, height / 3, width / 9, height / 3);
   
-  // Set text properties for digits
+ 
   textAlign(CENTER, CENTER);
   textSize(20);
   
-  // Extract and draw each digit in the respective rectangle
+  
   text(`${Math.floor(num / 100000) % 10}`, width / 14 + width / 18, height / 3 + height / 6);
   text(`${Math.floor(num / 10000) % 10}`, width / 5 + width / 18, height / 3 + height / 6);
   text(`${Math.floor(num / 1000) % 10}`, width / 3 + width / 18, height / 3 + height / 6);
