@@ -31,10 +31,6 @@ function setup() {
         case 1:
             message = "*"
             solution = operator1 * operator2
-            if (operator1 < operator 2) {
-                temp = operator1
-                
-            }
             break;
         case 2:
             message = "-"
