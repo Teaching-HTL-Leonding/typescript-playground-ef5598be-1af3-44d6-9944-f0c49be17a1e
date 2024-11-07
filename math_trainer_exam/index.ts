@@ -31,6 +31,10 @@ function setup() {
         case 1:
             message = "*"
             solution = operator1 * operator2
+            if (operator1 < operator 2) {
+                temp = operator1
+                
+            }
             break;
         case 2:
             message = "-"
@@ -67,63 +71,62 @@ function setup() {
     textAlign(LEFT)
     text(`${randomnum3}`, width / 1.6, height / 2)
 
+}
 
-
-    // mouseClicked function checks if the user clicked on the correct answer
-    function mouseClicked() {
-        if (mouseX < width / 10 * 4 && mouseX > width / 12 * 3 && mouseY < height / 3 * 2) {
-            if (correctanswer === randomnum1) {
-                textAlign(CENTER)
-                textSize(35)
-                fill("green")
-                text(`${correctanswer} ist richtig!`, width / 2, height / 3 * 2)
-            }
-            else {
-                textAlign(CENTER)
-                textSize(35)
-                fill("red")
-                text(`${randomnum1}ist falsch!`, width / 2, height / 3 * 2)
-            }
-
+// mouseClicked function checks if the user clicked on the correct answer
+function mouseClicked() {
+    if (mouseX < width / 10 * 4 && mouseX > width / 12 * 3 && mouseY < height / 3 * 2) {
+        if (correctanswer === randomnum1) {
+            textAlign(CENTER)
+            textSize(35)
+            fill("green")
+            text(`${correctanswer} ist richtig!`, width / 2, height / 3 * 2)
         }
-        else if (mouseX < width / 12 * 7 && mouseX > width / 14 * 6 && mouseY < height / 3 * 2) {
-            if (correctanswer === randomnum2) {
-                textAlign(CENTER)
-                textSize(35)
-                fill("green")
-                text(`${correctanswer} ist richtig!`, width / 2, height / 3 * 2)
-            } else {
-                textAlign(CENTER)
-                textSize(35)
-                fill("red")
-                text(`${randomnum2}ist falsch!`, width / 2, height / 3 * 2)
-            }
-        } else if (mouseX < width / 12 * 7 && mouseX > width / 14 * 6 && mouseY < height / 3 * 2) {
-            if (correctanswer === randomnum3) {
-                textAlign(CENTER)
-                textSize(35)
-                fill("green")
-                text(`${correctanswer} ist richtig!`, width / 2, height / 3 * 2)
-            } else {
-                textAlign(CENTER)
-                textSize(35)
-                fill("red")
-                text(`${randomnum3}ist falsch!`, width / 2, height / 3 * 2)
-            }
+        else {
+            textAlign(CENTER)
+            textSize(35)
+            fill("red")
+            text(`${randomnum1}ist falsch!`, width / 2, height / 3 * 2)
+        }
+
+    }
+    else if (mouseX < width / 12 * 7 && mouseX > width / 14 * 6 && mouseY < height / 3 * 2) {
+        if (correctanswer === randomnum2) {
+            textAlign(CENTER)
+            textSize(35)
+            fill("green")
+            text(`${correctanswer} ist richtig!`, width / 2, height / 3 * 2)
+        } else {
+            textAlign(CENTER)
+            textSize(35)
+            fill("red")
+            text(`${randomnum2}ist falsch!`, width / 2, height / 3 * 2)
+        }
+    } else if (mouseX < width / 12 * 9 && mouseX > width / 14 * 7 && mouseY < height / 12 * 5) {
+        if (correctanswer === randomnum3) {
+            textAlign(CENTER)
+            textSize(35)
+            fill("green")
+            text(`${correctanswer} ist richtig!`, width / 2, height / 3 * 2)
+        } else {
+            textAlign(CENTER)
+            textSize(35)
+            fill("red")
+            text(`${randomnum3}ist falsch!`, width / 2, height / 3 * 2)
         }
     }
-        // mouseMoved function displays mouse coordinates as feedback
-        function mouseMoved() {
-            // This is a HELPER FUNCTION. It should make finding coordinates
-            // easier for you. You DO NOT NEED to change this method!
+}
+// mouseMoved function displays mouse coordinates as feedback
+function mouseMoved() {
+    // This is a HELPER FUNCTION. It should make finding coordinates
+    // easier for you. You DO NOT NEED to change this method!
 
-            fill("black");
-            noStroke();
-            rect(0, height - 20, width, height); // Draws a rectangle to clear previous coordinates
+    fill("black");
+    noStroke();
+    rect(0, height - 20, width, height); // Draws a rectangle to clear previous coordinates
 
-            fill("white");
-            textSize(10);
-            textAlign(LEFT, BOTTOM); // Aligns coordinates text to bottom-left
-            text(`${mouseX}/${mouseY}`, 5, height - 5); // Displays current mouse coordinates
-        }
-    }
+    fill("white");
+    textSize(10);
+    textAlign(LEFT, BOTTOM); // Aligns coordinates text to bottom-left
+    text(`${mouseX}/${mouseY}`, 5, height - 5); // Displays current mouse coordinates
+}
