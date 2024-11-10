@@ -1,4 +1,3 @@
-
 let operator1 = 0
 let operator2 = 0
 let operator = 0
@@ -11,16 +10,19 @@ let correctanswer = 0
 function setup() {
     createCanvas(400, 400);
     background("black");
-    operator2 = Math.floor(random(1, 101))
+    operator2 = Math.floor(random(1, 101)) // RS: First minimum requirement solved
     operator1 = Math.floor(random(1, 101))
     operator = Math.floor(random(0, 3))
     randomnum1 = Math.floor(random(1, 1000))
     randomnum2 = Math.floor(random(1, 1000))
     randomnum3 = Math.floor(random(1, 1000))
     correctanswer = Math.floor(random(0, 3))
+
+    // RS: Please remove unused variables before handing in work
     const mouseclicki1 = mouseX < width / 10 * 4 && mouseX > width / 12 * 3 && mouseY < height / 3 * 2
 
 
+    // RS: Second minimum requirement solved with switch
     fill("yellow")
     switch (operator) {
         case 0:
@@ -71,6 +73,9 @@ function setup() {
 
 // mouseClicked function checks if the user clicked on the correct answer
 function mouseClicked() {
+    // RS: In general, this logic is correct. However, the coordinates are wront
+    //     so the program does not work as expected. Nevertheless, you have shown
+    //     that you understood if statement.
     if (mouseX < width / 10 * 4 && mouseX > width / 12 * 3 && mouseY < height / 3 * 2) {
         if (correctanswer === randomnum1) {
             textAlign(CENTER)
