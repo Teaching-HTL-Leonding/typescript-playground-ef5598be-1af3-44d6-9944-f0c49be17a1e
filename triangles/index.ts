@@ -11,14 +11,13 @@ function setup() {
     stroke("yellow");
     noFill();
 
-for(let y = 0; y <= SIZE; y+= 0)
+for(let y = 0; y <= SIZE; y+= SIDE_LENGTH)
 push()
 
-for(let x= 0; x <= SIZE; x+= 0){
+for(let x= 0; x <= SIZE; x+= SIDE_LENGTH){
 triangle(0, SIDE_LENGTH, HEIGHT, SIDE_LENGTH*0, HEIGHT*0, 0)
 translate(SIDE_LENGTH, 0)
 }
 pop()
-translate(0, HEIGHT);
-
+translate(0, SIDE_LENGTH);
 }
