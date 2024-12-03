@@ -14,7 +14,7 @@ function setup() {
       } else {
         fill("brown");
       }
-      rect(col * SQUARE_SIZE + 70, row * SQUARE_SIZE + 70, SQUARE_SIZE, SQUARE_SIZE);
+      rect(col * SQUARE_SIZE + 75, row * SQUARE_SIZE + 75, SQUARE_SIZE, SQUARE_SIZE);
     }
   }
 
@@ -25,9 +25,9 @@ function setup() {
 
   for (let i = 0; i < 8; i++) {
     // Rank markings (numbers on the left)
-    text(8 - i, SQUARE_SIZE / 2, i * SQUARE_SIZE + SQUARE_SIZE / 2);
+    text(8 - i, SQUARE_SIZE / 2 + 30, i * SQUARE_SIZE + SQUARE_SIZE / 2 + 70 );
 
     // File markings (letters at the bottom)
-    text(String.fromCharCode(97 + i), i * SQUARE_SIZE + SQUARE_SIZE / 2, SIZE + SQUARE_SIZE / 2);
+    text(String.fromCharCode(97 + i), i * SQUARE_SIZE + SQUARE_SIZE / 2 + 75, SIZE + SQUARE_SIZE / 2 - 30);
   }
 }
