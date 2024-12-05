@@ -3,30 +3,34 @@ function setup() {
     background("black");
     fill("aqua");
     noStroke();
-colorMode(HSB)
+    colorMode(HSB)
     textSize(50);
     textAlign(CENTER, CENTER);
     text("Move the mouse to start", 0, 0, width, height);
 }
-let linecoulor= 0
+
+let linecoulor = 0
+let rayColor = 0
 function mouseMoved() {
     resetMatrix();
     background("black");
-        noFill();
+    noFill()
+
+
+
 
     let SIZE = 10
     for (let i = 0; i <= 601; i += 10) {
         push()
-
         for (let y = 0; y <= 601; y += 10) {
-    stroke(linecoulor, 100, 100);
-linecoulor= (linecoulor*0.1)% 360;
+        stroke(rayColor, 100, 100)
             line(0, 0, 10, 5)
             line(10, 5, 0, 10)
             translate(0, 10)
         }
-        pop()
+       pop()
         translate(10, 0)
+      rayColor = (rayColor += 6)% 360
     }
     noStroke()
     resetMatrix()
