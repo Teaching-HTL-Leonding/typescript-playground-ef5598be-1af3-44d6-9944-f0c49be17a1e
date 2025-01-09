@@ -11,7 +11,7 @@ let lineStartY: number[] = [];
 let lineEndX: number[] = [];     // End coordinates of line
 let lineEndY: number[] = [];
 let lineColor: number[] = [];
-let lines: number = 3
+let lines: number = 4
 let lineStartDx: number[] = []    // Movement of start point per frame in X and Y direction
 let lineStartDy: number[] = []
 let lineEndDx: number[] = []      // Movement of end point per frame in X and Y direction
@@ -45,7 +45,7 @@ function draw() {
     noFill()
     stroke(15)
     stroke("white")
-    line(70, 25, 90, 25)
+    line(60, 25, 90, 25)
     line(25, 10, 25, 40)
     line(10, 25, 90, 25)
     rect(0, 0, 50, 50)
