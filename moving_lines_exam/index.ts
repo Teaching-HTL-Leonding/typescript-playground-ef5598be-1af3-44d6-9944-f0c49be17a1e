@@ -26,98 +26,103 @@ function setup() {
     let num = 0
     for (let i = 0; i < CONFIGURATION.length; i++) {
 
-if (CONFIGURATION[i] === ";"){
-    lines = num
-    num = 0
-}
-        lineStartX.push(random(50, 450));
-        lineStartY.push(random(50, 450));
-        lineEndX.push(random(50, 450));
-        lineEndY.push(random(50, 450));
-
-        // Set random movement
-        lineStartDx.push(random(0, 5));
-        lineStartDy.push(random(0, 5));
-        lineEndDx.push(random(0, 5));
-        lineEndDy.push(random(0, 5));
-
-        // Set random color
-        lineColor.push(random(minColor, maxColor));
+        if (CONFIGURATION[i] === ";") {
+            lines = num
+            num = 0
+        } else if (CONFIGURATION[i] === "-") {
+            minColor = num
+            num = 0
+        }else { num = num*10 + parseInt(CONFIGURATION[i]) }
     }
-}
+    maxColor = num
+ for (let i = 0; i < lines; i++) {
+            lineStartX.push(random(50, 450));
+            lineStartY.push(random(50, 450));
+            lineEndX.push(random(50, 450));
+            lineEndY.push(random(50, 450));
 
-function draw() {
-    background("black");
-    noFill()
-    stroke(15)
-    stroke("white")
-    line(60, 25, 90, 25)
-    line(25, 10, 25, 40)
-    line(10, 25, 90, 25)
-    rect(0, 0, 50, 50)
-    rect(50, 0, 50, 50)
-    for (let i = 0; i < lines; i++) {
+            // Set random movement
+            lineStartDx.push(random(0, 5));
+            lineStartDy.push(random(0, 5));
+            lineEndDx.push(random(0, 5));
+            lineEndDy.push(random(0, 5));
 
-        push();
-        // Draw current line
-        stroke(lineColor[i], 100, 100);
-        strokeWeight(2);
-        line(lineStartX[i], lineStartY[i], lineEndX[i], lineEndY[i]);
+            // Set random color
+              lineColor.push(random(minColor, maxColor));
+    }}
 
-        // Move start and end point
-        lineStartX[i] += lineStartDx[i];
-        lineStartY[i] += lineStartDy[i];
-        lineEndX[i] += lineEndDx[i];
-        lineEndY[i] += lineEndDy[i];
+    function draw() {
+        background("black");
+        noFill()
+        stroke(15)
+        stroke("white")
+        line(60, 25, 90, 25)
+        line(25, 10, 25, 40)
+        line(10, 25, 90, 25)
+        rect(0, 0, 50, 50)
+        rect(50, 0, 50, 50)
+        for (let i = 0; i < lines; i++) {
 
-        // Reverse direction when edge has been reached
-        if (lineStartX[i] < 0 || lineStartX[i] > width) {
-            lineStartDx[i] = -lineStartDx[i];
+            push();
+            // Draw current line
+            stroke(lineColor[i], 100, 100);
+            strokeWeight(2);
+            line(lineStartX[i], lineStartY[i], lineEndX[i], lineEndY[i]);
+
+            // Move start and end point
+            lineStartX[i] += lineStartDx[i];
+            lineStartY[i] += lineStartDy[i];
+            lineEndX[i] += lineEndDx[i];
+            lineEndY[i] += lineEndDy[i];
+
+            // Reverse direction when edge has been reached
+            if (lineStartX[i] < 0 || lineStartX[i] > width) {
+                lineStartDx[i] = -lineStartDx[i];
+            }
+            if (lineStartY[i] < 0 || lineStartY[i] > height) {
+                lineStartDy[i] = -lineStartDy[i];
+            }
+
+            if (lineEndX[i] < 0 || lineEndX[i] > width) {
+                lineEndDx[i] = -lineEndDx[i];
+            }
+            if (lineEndY[i] < 0 || lineEndY[i] > height) {
+                lineEndDy[i] = -lineEndDy[i];
+            }
+
+            pop();
         }
-        if (lineStartY[i] < 0 || lineStartY[i] > height) {
-            lineStartDy[i] = -lineStartDy[i];
-        }
-
-        if (lineEndX[i] < 0 || lineEndX[i] > width) {
-            lineEndDx[i] = -lineEndDx[i];
-        }
-        if (lineEndY[i] < 0 || lineEndY[i] > height) {
-            lineEndDy[i] = -lineEndDy[i];
-        }
-
-        pop();
     }
-}
-function mouseClicked() {
-    if (mouseX > 0 && mouseX < 50 && mouseY > 0 && mouseY > 0 && mouseY < 50) {
-        lines = lines + 1
-        lineStartX.push(random(50, 450));
-        lineStartY.push(random(50, 450));
-        lineEndX.push(random(50, 450));
-        lineEndY.push(random(50, 450));
+    function mouseClicked() {
+        if (mouseX > 0 && mouseX < 50 && mouseY > 0 && mouseY > 0 && mouseY < 50) {
+            lines = lines + 1
+            lineStartX.push(random(50, 450));
+            lineStartY.push(random(50, 450));
+            lineEndX.push(random(50, 450));
+            lineEndY.push(random(50, 450));
 
-        lineStartDx.push(random(0, 5));
-        lineStartDy.push(random(0, 5));
-        lineEndDx.push(random(0, 5));
-        lineEndDy.push(random(0, 5));
+            lineStartDx.push(random(0, 5));
+            lineStartDy.push(random(0, 5));
+            lineEndDx.push(random(0, 5));
+            lineEndDy.push(random(0, 5));
 
-        // Set random color
-        lineColor.push(random(minColor, maxColor));
+            // Set random color
+            lineColor.push(random(minColor, maxColor));
+
+        }
+        if (mouseX > 50 && mouseX < 100 && mouseY > 0 && mouseY < 50 && lines > 1) {
+            lines = lines - 1
+            lineStartX.splice(lines);
+            lineStartY.splice(lines);
+            lineEndX.splice(lines);
+            lineEndY.splice(lines);
+
+            lineStartDx.splice(lines);
+            lineStartDy.splice(lines);
+            lineEndDx.splice(lines);
+            lineEndDy.splice(lines);
+
+            lineColor.push(random(minColor, maxColor));
+        }
 
     }
-    if (mouseX > 50 && mouseX < 100 && mouseY > 0 && mouseY < 50 && lines > 1) {
-        lines = lines - 1
-        lineStartX.splice(lines);
-        lineStartY.splice(lines);
-        lineEndX.splice(lines);
-        lineEndY.splice(lines);
-
-        lineStartDx.splice(lines);
-        lineStartDy.splice(lines);
-        lineEndDx.splice(lines);
-        lineEndDy.splice(lines);
-
-        lineColor.push(random(minColor, maxColor));
-    }
-
-}
